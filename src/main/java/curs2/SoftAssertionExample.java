@@ -21,6 +21,7 @@ public class SoftAssertionExample {
 		System.out.println("SoftAssertion se termina aici!");
 		sa.assertEquals(22, 24);
 		sa.assertAll(); //arunca exceptia la final pt fiecare assert in parte
+		//pt branchul nou creat-de test
 	}
 	
 	//@Test
