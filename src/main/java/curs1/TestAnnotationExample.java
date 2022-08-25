@@ -21,7 +21,7 @@ public class TestAnnotationExample {
 	public void test4() {
 		System.out.println("test 4");
 	}	
-	//@Test
+	//@Test dc e private si nu are anotarea test la nivel de metoda atunci nu va fi rulata desi exista anotare la nivel de clasa
 	private void test5() {
 		System.out.println("test 5");
 	}

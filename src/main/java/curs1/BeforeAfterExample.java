@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class BeforeAfterExample {
 
 	@BeforeSuite
-	public void beforeSuite() {
+	public void beforeSuite() { //ruleaza inainte de orice din suita de teste si pachete
 		System.out.println("Before suite");
 	}
 	@BeforeClass(alwaysRun = true)

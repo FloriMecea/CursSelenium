@@ -18,7 +18,7 @@ public class TestDependency {
 		System.out.println(" Method 2");
 	}
 	
-	@Test(priority = 2, dependsOnMethods = "method1", alwaysRun = true)
+	@Test(priority = 2, dependsOnMethods = "method1", alwaysRun = true)  //alwaysRun=True forteaza rularea metodei3 chiar dc ea depinde de metoda1
 	public void method3() {
 		System.out.println(" Method 3");
 	}

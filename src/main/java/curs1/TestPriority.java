@@ -3,7 +3,7 @@ package curs1;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
-public class TestPriority {
+public class TestPriority { //ruleaza intai cele fara priority alfabetic si apoi prio0, 1..., deci dc pui la una priority pune la toate metodele cel mai bine
 	
 	@Test(priority = 0)
 	public void one() {
@@ -21,7 +21,7 @@ public class TestPriority {
 	public void four() {
 		System.out.println("Fourth");
 	}
-	@Ignore
+	@Ignore //fie pun ignore fie commentez @Test
 	public void five() {
 		System.out.println("Fifth");
 	}
