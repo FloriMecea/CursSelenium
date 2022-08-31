@@ -27,14 +27,14 @@ public class SeleniumLocators extends BaseTest {
 	}
 	
 	@Test (priority=1)
-	public void linkTextLocator() {
+	public void linkTextLocator() { //doar pe web elementele cu tagul "a"
 		driver.findElement(By.linkText("BOOKS")).click();
 		assertEquals(driver.getCurrentUrl(),"https://keybooks.ro/shop/");
 	}
 	
 	
 	@Test (priority=2)
-	public void partiallinkTextLocator() {
+	public void partiallinkTextLocator() {//doar pe web elementele cu tagul "a"
 		driver.findElement(By.partialLinkText("Cooking")).click();
 		assertEquals(driver.getCurrentUrl(),"https://keybooks.ro/shop/cooking-with-love/");
 	}
@@ -55,7 +55,7 @@ public class SeleniumLocators extends BaseTest {
 	@Test (priority=4)
 	public void idLocator() {
 		JavascriptExecutor jse= (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollBy(0,500)");
+		jse.executeScript("window.scrollBy(0,500)"); //Y-jos,X-lateral
 		driver.findElement(By.id("tab-title-reviews")).click();
 		assertEquals(driver.getCurrentUrl(),"https://keybooks.ro/shop/cooking-with-love/");
 	}
