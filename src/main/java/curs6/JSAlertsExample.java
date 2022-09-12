@@ -39,4 +39,18 @@ public class JSAlertsExample extends BaseTest{
 		Thread.sleep(3000);
 		
 	}
+	
+	@Test(priority=2)
+	public void promptJsAlertExample() throws InterruptedException {
+		driver.findElement(By.cssSelector("button[onclick='jsPrompt()']")).click();
+		Thread.sleep(3000);
+		
+		driver.switchTo().alert().sendKeys("Test");
+		driver.switchTo().alert().accept();
+		
+		WebElement result= driver.findElement(By.cssSelector("p[id='result']"));
+		assertEquals(result.getText(), "You entered: Test");
+		Thread.sleep(3000);
+		
+	}
 }
