@@ -18,6 +18,7 @@ public class FindForest extends BaseTest{
 		List<WebElement> myList= new ArrayList<WebElement>();
 		myList=driver.findElements(By.className("sc_tabs_title"));
 		SoftAssert sa=new SoftAssert();
+		System.out.println(myList.size());
 		
 		for (WebElement element:  myList) {
 			element.click();

@@ -29,7 +29,7 @@ public class BaseTest {
 	//	driver.get("https://the-internet.herokuapp.com/javascript_alerts");
 	//	driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
 
-		driver.get("https://the-internet.herokuapp.com/dynamic_loading/2");
+	//	driver.get("https://the-internet.herokuapp.com/dynamic_loading/2");
 
 	//	driver.get("https://the-internet.herokuapp.com/dynamic_loading/2");
 	
