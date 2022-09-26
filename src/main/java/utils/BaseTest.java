@@ -35,6 +35,8 @@ public class BaseTest {
 	
 	
 		jse= (JavascriptExecutor) driver;
+		
+		//new line for conflicts exercise
 
 	}
 	
