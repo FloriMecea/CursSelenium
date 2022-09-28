@@ -22,4 +22,15 @@ public class NavMenuPage {
 		//adica in loc sa fac o metoda pentru fiecare locator, fac una singura
 		driver.findElement(locator).click();
 	}
+	
+	//ShopPage shopPage= new ShopPage(driver);
+	public ShopPage navigateToShop() {
+		//cele 2 de mai jos din DropDownTest au fost inlocuite cu driver.findElement(shopLink).click();
+		//NavMenuPage navMenu= new NavMenuPage(driver);
+	//	navMenu.navigateTo(navMenu.shopLink);
+		driver.findElement(shopLink).click();
+		
+		//ShopPage shopPage= new ShopPage(driver);
+		return new ShopPage(driver);
+	}
 }
