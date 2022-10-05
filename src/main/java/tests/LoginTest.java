@@ -1,8 +1,14 @@
 package tests;
 
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertTrue;
 
-import org.testng.annotations.Test;
+
+
+
 
 import pages.LoginPage;
 import pages.NavMenuPage;
@@ -10,8 +16,9 @@ import utils.BaseTest;
 
 public class LoginTest extends BaseTest {
 
-	@Test(priority=0)
-	public void loginTest() throws InterruptedException {
+	@Parameters({"user","pass"})
+	@Test(priority=0, groups="LoginFunctionality")
+	public void loginTest(String username, String password) throws InterruptedException {
 		NavMenuPage navMenu= new NavMenuPage(driver);
 		navMenu.navigateTo(navMenu.loginLink);
 		//loginPage.loginInApp(username, password)
@@ -19,7 +26,8 @@ public class LoginTest extends BaseTest {
 		
 		LoginPage loginPage= new LoginPage(driver);
 		
-		loginPage.loginInApp("TestUser", "12345@67890");
+		//loginPage.loginInApp("TestUser", "12345@67890");
+		loginPage.loginInApp(username, password);
 		
 		//varianta1
 		assertTrue(loginPage.loginSuccessMessageIsDisplayed());
@@ -28,8 +36,9 @@ public class LoginTest extends BaseTest {
 	    loginPage.logoutFromApp();
 	}
 	
+	@Parameters({"invalidUser","invalidPass"})
 	@Test(priority=1)
-	public void invalidLoginTest() throws InterruptedException {
+	public void invalidLoginTest(String username, String password) throws InterruptedException {
 		NavMenuPage navMenu= new NavMenuPage(driver);
 		navMenu.navigateTo(navMenu.loginLink);
 		//loginPage.loginInApp(username, password)
@@ -37,10 +46,11 @@ public class LoginTest extends BaseTest {
 		
 		LoginPage loginPage= new LoginPage(driver);
 		
-		loginPage.loginInApp("TestCeva", "12345@67890");
+		//loginPage.loginInApp("TestCeva", "12345@67890");
+		loginPage.loginInApp(username, password);
 		
 		//varianta1
-		assertTrue(loginPage.loginErrorMessageIsDisplayed());
+	  assertTrue(loginPage.loginErrorMessageIsDisplayed());
 		//varianta2
 		assertTrue(loginPage.loginMessageIsDisplayed(loginPage.loginErrorMessage));
 	   

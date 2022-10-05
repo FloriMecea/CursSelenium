@@ -8,6 +8,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.NavMenuPage;
@@ -18,8 +19,10 @@ public class BaseTest {
 	public JavascriptExecutor jse;
 	public NavMenuPage navMenu;
 	
-	@BeforeClass
+//	@Parameters("url")  pt testNG cu parametrii
+	@BeforeClass (alwaysRun=true)
 	public void setup() {
+//			public void setup(String url_bun) {
 		driver = WebDriverManager.chromedriver().create();
 		
 		driver.manage().window().maximize();
@@ -28,6 +31,7 @@ public class BaseTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		driver.get("http://keybooks.ro");
+//	pt test ng	driver.get(url_bun);
 	//	driver.get("https://the-internet.herokuapp.com/javascript_alerts");
 	//	driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
 
