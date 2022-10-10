@@ -4,11 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LoginPage {
-	public WebDriver driver;
+import utils.SeleniumWrappers;
+
+public class LoginPage extends SeleniumWrappers {
+//	public WebDriver driver;
 	
 	public LoginPage(WebDriver driver) {
-		this.driver=driver;
+		//this.driver=driver;
+		super(driver);
 	}
 	public By usernameField=By.cssSelector("ul input[id='log']");
 	public By passwordField=By.cssSelector("ul input[id='password']");
@@ -21,16 +24,42 @@ public class LoginPage {
 	
 	public By logoutButton=By.cssSelector("li[class='menu_user_logout']");
 	
+	public By closeButton=By.cssSelector("a[class='popup_close']");
 	
-	public void loginInApp(String username, String password) {
-		driver.findElement(usernameField).sendKeys(username);
-		driver.findElement(passwordField).sendKeys(password);
-		driver.findElement(submitButton).click();
+	public void closeLoginPopup() {
+		driver.findElement(closeButton).click();
 		
 	}
 	
+	/*
+	public void loginInApp(String username, String password) {
+		driver.findElement(usernameField).clear();
+		driver.findElement(usernameField).sendKeys(username);
+		driver.findElement(passwordField).clear();
+		driver.findElement(passwordField).sendKeys(password);
+		
+		driver.findElement(submitButton).click();
+		
+	}
+	*/
+	
+	public void loginInApp(String username, String password) {
+		//driver.findElement(usernameField).clear();
+		//driver.findElement(usernameField).sendKeys(username);
+		sendKeys(usernameField,username);
+		
+		//driver.findElement(passwordField).clear();
+	//	driver.findElement(passwordField).sendKeys(password);
+		sendKeys(passwordField,password);
+		
+	//	driver.findElement(submitButton).click();
+		click(submitButton);
+	
+	}
+	
 	public void logoutFromApp() {
-		driver.findElement(logoutButton).click();
+		//driver.findElement(logoutButton).click();
+		click(logoutButton);
 	}
 	
 //	 fie separat dar atunci sunt duplicate
