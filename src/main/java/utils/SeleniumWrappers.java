@@ -4,9 +4,11 @@ import java.time.Duration;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -60,4 +62,16 @@ public class SeleniumWrappers {
 		WebDriverWait wait =  new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
+   
+   public void dragAndDrop(By locator, int x, int y) {
+	   WebElement element= driver.findElement(locator);
+	   Actions action= new Actions(driver);
+	   
+	   action.dragAndDropBy(element, x, y).perform(); //vreau sa il mut pe orizontala sau verticala x, y
+	   //sau se poate ca mai jos dar e o varianta lunga
+     //  action.clickAndHold(element).moveByOffset(300, 0).release().build().perform();
+   
+	   //sendKeys si click exista si pe action, dar difera de sendKeys si click de pe WebElement
+	 //  action.sendKeys(Keys.TAB).click().sendKeys(Keys.TAB).perform();
+   }
 }

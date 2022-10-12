@@ -1,14 +1,26 @@
 package pages;
 
+import static org.testng.Assert.assertTrue;
+
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class NavMenuPage {
+import utils.SeleniumWrappers;
+
+public class NavMenuPage extends SeleniumWrappers {
 	
-	public WebDriver driver;
+	//comentat la cursul de data provider
+	//public WebDriver driver;
 	
 	public NavMenuPage(WebDriver driver) {
-		this.driver= driver;
+		//comentat la cursul de data provider
+		//this.driver= driver;
+		super(driver);
 	}
 	
 	//locatori
@@ -16,6 +28,10 @@ public class NavMenuPage {
 	public By shopLink= By.linkText("BOOKS");
 	public By loginLink= By.linkText("Login");
 	public By contactLink= By.linkText("CONTACTS");
+	
+	
+	public By searchIcon=By.cssSelector("button[class*='search_submit']");
+	public By searchField=By.cssSelector("input[class='search_field']");
 	
 	public void navigateTo(By locator) { //o metoda care o pot folosi pe urma sa o apelez 
 		//pt mai multi locatori
@@ -32,5 +48,18 @@ public class NavMenuPage {
 		
 		//ShopPage shopPage= new ShopPage(driver);
 		return new ShopPage(driver);
+	}
+	
+	public void searchBook(String value) {
+	   click(searchIcon);
+	   sendKeys(searchField,value);
+	   click(searchIcon);
+	}
+	
+	public boolean isBookPictureDisplayed(String picture) {
+     WebElement element =  driver.findElement(By.cssSelector("div[data-image*='"+picture+"']"));
+		WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(element));
+		return element.isDisplayed(); 
 	}
 }
