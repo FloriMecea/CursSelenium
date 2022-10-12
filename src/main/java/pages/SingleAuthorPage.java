@@ -9,7 +9,7 @@ public class SingleAuthorPage{
 	public WebDriver driver;
 	public WebElement drama, biography,cookbooks;
 	
-	public By singleAuthorLink= By.linkText("https://keybooks.ro/team/margaret-robins/");
+	public By singleAuthorLink= By.linkText("SINGLE AUTHOR");
 	
 	
 	public SingleAuthorPage(WebDriver driver) {
@@ -18,11 +18,13 @@ public class SingleAuthorPage{
 	
 	public By drama_locator= By.cssSelector("div[class*='first inited']>div>div");
 	public By biography_locator= By.cssSelector("div[class*='even inited']>div>div");
-	public By cookbooks_locator= By.cssSelector("div[class*='even inited']>div>div");
+	public By cookbooks_locator= By.cssSelector("div[class*='odd inited']>div>div");
 	
-	public void checkPercentage(String value, By locator) {
+	public String returnPercentage (By locator) throws InterruptedException {
 		//drama=driver.findElement(drama_locator);
 		WebElement element=driver.findElement(locator);
-		element.getText();
+		Thread.sleep(3000);
+		System.out.println(element.getText());
+		return element.getText();
 	}
 }
