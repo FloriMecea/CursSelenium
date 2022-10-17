@@ -45,7 +45,7 @@ public class ComandaCarteaStory extends BaseTest{
 		
 		WebElement alertaAdaugare= driver.findElement(By.cssSelector("div[role='alert']"));
 		System.out.println(alertaAdaugare.getText());
-	//    assertEquals(alertaAdaugare.getText(),("The story about me has been added to your cart."));
+	    assertTrue(alertaAdaugare.getText().contains("“The story about me” has been added to your cart."));
 		Thread.sleep(1000);
 	    
 	    WebElement viewCart= driver.findElement(By.cssSelector("a[href*='cart'][tabindex='1']"));
@@ -62,6 +62,7 @@ public class ComandaCarteaStory extends BaseTest{
 		WebElement adaugareCantitate= driver.findElement(By.cssSelector("input[id*='quantity']"));
 		adaugareCantitate.clear();
 		adaugareCantitate.sendKeys("2");
+	    Thread.sleep(2000);
 		
 		WebElement salvareCantitate= driver.findElement(By.cssSelector("button[value='Update cart']"));
 		salvareCantitate.click();

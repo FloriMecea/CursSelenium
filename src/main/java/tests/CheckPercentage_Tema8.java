@@ -17,12 +17,12 @@ public class CheckPercentage_Tema8 extends BaseTest {
 		navMenu.navigateTo(pag.singleAuthorLink);
 		Thread.sleep(2000);
 		
-		String a= pag.returnPercentage(pag.drama_locator);
-		String b= pag.returnPercentage(pag.biography_locator);
-		String c= pag.returnPercentage(pag.cookbooks_locator);
-		assertEquals(a, "95%");
-		assertEquals(b, "75%");
-		assertEquals(c, "82%");
+		String drama_percentage= pag.returnPercentage(pag.drama_locator);
+		String biography_percentage= pag.returnPercentage(pag.biography_locator);
+		String cookbooks_percentage= pag.returnPercentage(pag.cookbooks_locator);
+		assertEquals(drama_percentage, "95%");
+		assertEquals(biography_percentage, "75%");
+		assertEquals(cookbooks_percentage, "82%");
 		
 	}
 
