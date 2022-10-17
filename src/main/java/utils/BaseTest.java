@@ -18,6 +18,7 @@ public class BaseTest {
 	public WebDriver driver;
 	public JavascriptExecutor jse;
 	public NavMenuPage navMenu;
+	public BasePage basePage;
 	
 //	@Parameters("url")  pt testNG cu parametrii
 	@BeforeClass (alwaysRun=true)
@@ -44,6 +45,8 @@ public class BaseTest {
 	  navMenu= new NavMenuPage(driver);
 		
 		//new line for conflicts exercise
+	  
+	  basePage=new BasePage();
 
 	}
 	

@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 public class SeleniumWrappers {
 	
@@ -74,4 +75,16 @@ public class SeleniumWrappers {
 	   //sendKeys si click exista si pe action, dar difera de sendKeys si click de pe WebElement
 	 //  action.sendKeys(Keys.TAB).click().sendKeys(Keys.TAB).perform();
    }
+
+
+   public void hoverElement(By locator) {	
+	WebElement element = driver.findElement(locator);
+	Actions action = new Actions(driver);
+	action.moveToElement(element).perform();	
+  }
+
+  public String readURL() {	
+	return driver.getCurrentUrl();	
+  }
+
 }
