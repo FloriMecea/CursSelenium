@@ -25,6 +25,7 @@ public class NavMenuPage extends SeleniumWrappers {
 	
 	//locatori
 	//driver.findElement(By.linkText("BOOKS"));
+	public By homeLink= By.linkText("HOME");
 	public By shopLink= By.linkText("BOOKS");
 	public By loginLink= By.linkText("Login");
 	public By contactLink= By.linkText("CONTACTS");
