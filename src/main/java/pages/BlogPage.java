@@ -32,13 +32,13 @@ public class BlogPage {
 		  
    }
 	
-	public WebElement FindElement(By locator) {
+	public WebElement findElement(By locator) {
 		   WebElement element=driver.findElement(locator);
 		  return element;
 			
 	}
 	/* o alta modalitate de a scrie FindElement
-	public WebElement FindElement(By locator) {
+	public WebElement findElement(By locator) {
         return driver.findElement(locator);          
 } */
 

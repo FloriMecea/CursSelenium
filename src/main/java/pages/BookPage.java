@@ -24,7 +24,7 @@ public class BookPage {
 	}
 	
 	
-	public WebElement FindElement(By locator) {
+	public WebElement findElement(By locator) {
 		   WebElement element=driver.findElement(locator);
 		  return element;
 			

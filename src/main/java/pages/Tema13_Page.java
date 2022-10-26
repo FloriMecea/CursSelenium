@@ -18,19 +18,19 @@ public class Tema13_Page {
 		this.driver=driver;
 	}
 
-	public void SelectPriceLowToHigh(By locator) {
+	public void selectPriceLowToHigh(By locator) {
 		WebElement element=driver.findElement(locator);
 		Select select=new Select(element);
 		select.selectByValue("price");
 	}
 	
-	public String CheckCurrentSelection(By locator) {
+	public String checkCurrentSelection(By locator) {
 		WebElement element=driver.findElement(locator);
 		Select select=new Select(element);
 		return select.getFirstSelectedOption().getText();
 	}
 	
-	public void Compare() {
+	public void compare() {
 		WebElement price1= driver.findElement(firstBookPrice);		
 		WebElement price2= driver.findElement(lastBookPrice);
 		String text1=price1.getText();

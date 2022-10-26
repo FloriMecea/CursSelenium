@@ -28,7 +28,7 @@ public class BlogPage2_Tema15 {
 		  
    }
 	
-	public WebElement FindElement(By locator) {
+	public WebElement findElement(By locator) {
 		   WebElement element=driver.findElement(locator);
 		  return element;
 			

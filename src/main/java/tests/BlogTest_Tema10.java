@@ -13,7 +13,7 @@ import utils.BaseTest;
 public class BlogTest_Tema10 extends BaseTest{
 	
 	@Test(priority=0)
-	public void GoToClassic() throws InterruptedException {
+	public void goToClassic() throws InterruptedException {
 		NavMenuPage menu= new NavMenuPage(driver);
 		BlogPage pag=new BlogPage(driver);
 		
@@ -29,7 +29,7 @@ public class BlogTest_Tema10 extends BaseTest{
 	    
 	}
 	@Test(priority=1)
-	public void FillFormular() throws InterruptedException {
+	public void fillFormular() throws InterruptedException {
 		NavMenuPage menu= new NavMenuPage(driver);
 		BlogPage pag=new BlogPage(driver);
 		
@@ -38,10 +38,10 @@ public class BlogTest_Tema10 extends BaseTest{
 		pag.addText(pag.name, "Flori");
 		pag.addText(pag.email, "email@email.com");	
 		pag.addText(pag.website, "Subiect1");		
-		WebElement check=pag.FindElement(pag.checkbox);
+		WebElement check=pag.findElement(pag.checkbox);
 		check.click();		
 		Thread.sleep(2000);
-		WebElement comment=pag.FindElement(pag.sendComment);
+		WebElement comment=pag.findElement(pag.sendComment);
 		comment.click();
 		
 		/* sau se poate apela asa daca se face cu metoda comentata in BlogPage
@@ -49,7 +49,7 @@ public class BlogTest_Tema10 extends BaseTest{
 		 */
 		Thread.sleep(3000);
 		
-		String text=pag.FindElement(pag.message).getText();
+		String text=pag.findElement(pag.message).getText();
 		assertEquals(text,"Your comment is awaiting moderation.");
 	}
 }

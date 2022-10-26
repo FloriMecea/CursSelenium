@@ -21,10 +21,10 @@ public class Tema13_Test extends BaseTest {
 		
 		assertEquals(driver.getCurrentUrl(),"https://keybooks.ro/shop/");
 		
-		pag.SelectPriceLowToHigh(pag.dropdown);
+		pag.selectPriceLowToHigh(pag.dropdown);
 		
-		assertEquals(pag.CheckCurrentSelection(pag.dropdown),"Sort by price: low to high");
-		pag.Compare();
+		assertEquals(pag.checkCurrentSelection(pag.dropdown),"Sort by price: low to high");
+		pag.compare();
 	}
 
 }

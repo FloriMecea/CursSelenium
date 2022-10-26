@@ -23,9 +23,9 @@ public class Actions_Tema15 extends BaseTest {
 		   menu.navigateTo(pag.audioPost);
 		   Thread.sleep(3000);
 		   assertEquals(driver.getCurrentUrl(),"https://keybooks.ro/2016/02/02/audio-post/");
-		   pag.FindElement(pag.clickPlay).click();
+		   pag.findElement(pag.clickPlay).click();
 		   Thread.sleep(6000);
-		   pag.FindElement(pag.playPause).click();
+		   pag.findElement(pag.playPause).click();
 		   pag.dragAndDrop(pag.sliderMelodie, 200, 0);
 		   Thread.sleep(3000);
 		   pag.dragAndDrop(pag.sliderSonor, -50, 0);
