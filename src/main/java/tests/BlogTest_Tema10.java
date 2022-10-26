@@ -43,6 +43,10 @@ public class BlogTest_Tema10 extends BaseTest{
 		Thread.sleep(2000);
 		WebElement comment=pag.FindElement(pag.sendComment);
 		comment.click();
+		
+		/* sau se poate apela asa daca se face cu metoda comentata in BlogPage
+		 * pag.FindElement(pag.sendComment).click();
+		 */
 		Thread.sleep(3000);
 		
 		String text=pag.FindElement(pag.message).getText();

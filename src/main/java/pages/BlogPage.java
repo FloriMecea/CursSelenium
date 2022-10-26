@@ -37,6 +37,11 @@ public class BlogPage {
 		  return element;
 			
 	}
+	/* o alta modalitate de a scrie FindElement
+	public WebElement FindElement(By locator) {
+        return driver.findElement(locator);          
+} */
+
 	public void addText(By locator, String message) {
 		   WebElement element=driver.findElement(locator);
 		   element.sendKeys(message);
