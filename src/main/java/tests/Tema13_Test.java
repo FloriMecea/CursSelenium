@@ -1,6 +1,7 @@
 package tests;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -24,7 +25,7 @@ public class Tema13_Test extends BaseTest {
 		pag.selectPriceLowToHigh(pag.dropdown);
 		
 		assertEquals(pag.checkCurrentSelection(pag.dropdown),"Sort by price: low to high");
-		pag.compare();
+		assertTrue(pag.compare());
 	}
 
 }

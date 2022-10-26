@@ -30,7 +30,7 @@ public class Tema13_Page {
 		return select.getFirstSelectedOption().getText();
 	}
 	
-	public void compare() {
+	public boolean compare() {
 		WebElement price1= driver.findElement(firstBookPrice);		
 		WebElement price2= driver.findElement(lastBookPrice);
 		String text1=price1.getText();
@@ -51,12 +51,16 @@ public class Tema13_Page {
 		
 		if(nr1<nr2) {
 			System.out.println("Prima carte are pretul mai mic decat ultima carte");
+			return true;
 	
 		} else if(nr1>nr2) {
 			System.out.println("Prima carte are pretul mai mare decat ultima carte");
+			return false;
 		
-		} else
+		} else {
 			 System.out.println("Cele 2 carti au acelasi pret");
+		    return false;
+		}
 			
 	}
 }
