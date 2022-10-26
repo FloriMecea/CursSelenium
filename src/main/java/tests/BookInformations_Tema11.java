@@ -1,10 +1,12 @@
 package tests;
 
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import pages.BookPage;
 import pages.NavMenuPage;
@@ -86,5 +88,23 @@ public class BookInformations_Tema11 extends BaseTest{
 		BookPage pag=new BookPage(driver);
 		    
 	    assertTrue(pag.findElement(pag.addToCart).isDisplayed());   
+	}
+	
+	@Test(priority=9) //sau o metoda in care sunt toate verificate dar arunca exceptia la final datorita lui assertAll daca cumva una din ele nu este ok, dar le verifica pe toate
+	public void checkAllAreDisplayed() throws InterruptedException {
+		BookPage pag=new BookPage(driver);
+		SoftAssert sa =  new SoftAssert();   
+		
+		  assertTrue(pag.findElement(pag.title).isDisplayed());
+		  assertTrue(pag.findElement(pag.price).isDisplayed());
+		  assertTrue(pag.findElement(pag.stars).isDisplayed());
+		  assertTrue(pag.findElement(pag.search).isDisplayed()); 
+		  assertTrue(pag.findElement(pag.shortDescription).isDisplayed());  
+		  assertTrue(pag.findElement(pag.longDescription).isDisplayed()); 
+		  assertTrue(pag.findElement(pag.quantity).isDisplayed()); 
+		  assertTrue(pag.findElement(pag.addToCart).isDisplayed());  
+		
+	    sa.assertAll();
+    
 	}
 }
