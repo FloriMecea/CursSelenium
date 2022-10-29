@@ -2,7 +2,11 @@ package tests;
 
 import static org.testng.Assert.assertEquals;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -89,7 +93,7 @@ public class Actions_Tema16 extends BaseTest {
 		   BlogPage2_Tema16 pag= new BlogPage2_Tema16(driver);
 		  
 		   menu.hoverElement(menu.blogLink);
-		   Thread.sleep(1000);
+		  // Thread.sleep(1000);
 		   menu.hoverElement(pag.portofolio);
 		   menu.hoverElement(pag.portofolio2Link);
 		   menu.navigateTo(pag.portofolio2Link);
@@ -100,12 +104,14 @@ public class Actions_Tema16 extends BaseTest {
 	@Test(priority=1, dataProvider="blogPost") 
 	public void test1(String hoverLocator, String title, String hoverText) throws InterruptedException {
 		   NavMenuPage menu= new NavMenuPage(driver);
-		   BlogPage2_Tema16 pag= new BlogPage2_Tema16(driver);
-		     
+		 //  WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
+	     //  wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(hoverLocator)));
+		   
 		   menu.hoverElement(By.cssSelector(hoverLocator));
-		   Thread.sleep(2000);
-		  System.out.println(driver.findElement(By.cssSelector(hoverText)).getText());
-		  assertEquals(driver.findElement(By.cssSelector(hoverText)).getText(),title);
+		  Thread.sleep(1000);
+		  // wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(hoverText)));
+		   System.out.println(driver.findElement(By.cssSelector(hoverText)).getText());
+		   assertEquals(driver.findElement(By.cssSelector(hoverText)).getText(),title);
 	   }
 	
 }

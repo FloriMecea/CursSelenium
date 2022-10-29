@@ -18,22 +18,4 @@ public class BlogPage2_Tema16 {
 		this.driver=driver;
 	}
 	
- 
-	public WebElement findElement(By locator) {
-		   WebElement element=driver.findElement(locator);
-		  return element;
-			
-	}
-	public void addText(By locator, String message) {
-		   WebElement element=driver.findElement(locator);
-		   element.sendKeys(message);
-			
-	}
-	 public void dragAndDrop(By locator, int x, int y) {
-		   WebElement element= driver.findElement(locator);
-		   Actions action= new Actions(driver);
-		   
-		   action.dragAndDropBy(element, x, y).perform();
-	   }
-
 }
