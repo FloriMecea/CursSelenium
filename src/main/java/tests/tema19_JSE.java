@@ -48,7 +48,7 @@ public class tema19_JSE extends BaseTest {
 		
 		//sendKeys in js 
 		WebElement comment=driver.findElement(By.cssSelector("textarea[id='comment']"));
-		jse.executeScript("arguments[0].value='Comment10'", comment);
+		jse.executeScript("arguments[0].value='Comment12'", comment);
 		
 		WebElement name=driver.findElement(By.cssSelector("input[name='author']"));
 		jse.executeScript("arguments[0].value='Flori'", name);
@@ -65,12 +65,13 @@ public class tema19_JSE extends BaseTest {
 		
 		Thread.sleep(3000);
 		//alternativa pt getText
-		//String authorName=  jse.executeScript("return document.getElementByClassName('comment_author')").toString();
+		String authorName=  jse.executeScript("return document.getElementsByClassName('comment_author')[0].innerHTML").toString();  
+		
 		WebElement submittedAuthorName=driver.findElement(By.cssSelector("span[class*='comment_author']"));
-		//System.out.println(authorName);
-	
+		
+		System.out.println("JSE autor: " +authorName);	
 		System.out.println("Autorul este: "+submittedAuthorName.getText());
-		//assertEquals(authorName, "Flori");
+		assertEquals(authorName, "Flori");
 		assertEquals(submittedAuthorName.getText(), "Flori");
 	}
 		
