@@ -37,7 +37,8 @@ public class Tema20 extends BaseTest{
 		  List<String> browserTabs= new ArrayList<String>(driver.getWindowHandles());
 		  System.out.println(browserTabs.size());
 	 
-		 for (int i=0; i<browserTabs.size();i++) {
+	/*	 nu era corect, aveam la switch alta ordine
+	  for (int i=0; i<browserTabs.size();i++) {
 			 driver.switchTo().window(browserTabs.get(i));
 			 Thread.sleep(3000);
 		     System.out.println(driver.getCurrentUrl());
@@ -50,6 +51,23 @@ public class Tema20 extends BaseTest{
 			 }
 		    
 		 }
+ */
+          String[] urls = new String[browserTabs.size()];
+          
+          for(int i= 0;i < browserTabs.size(); i++) {
+               driver.switchTo().window(browserTabs.get(i));
+               urls[i] = driver.getCurrentUrl();
+               
+          }
+          
+          for (String tab : browserTabs) {
+              driver.switchTo().window(tab);
+              assertEquals(driver.getCurrentUrl(), urls[browserTabs.indexOf(tab)] );
+              driver.close();
+             
+          }
+
+		  
 	  
 	  }
 }
